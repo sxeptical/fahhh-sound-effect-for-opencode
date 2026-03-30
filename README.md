@@ -31,7 +31,7 @@ The plugin listens for errors and plays `fahhh.mp3` using macOS's built-in `afpl
 
 Triggers on:
 - **Session errors** (`session.error`) -- API failures, rate limits, auth issues, etc.
-- **LSP errors** (`lsp.client.diagnostics`) -- type errors, syntax errors, and other diagnostics with severity level "Error"
+- **Tool errors** (`tool.execute.after`) -- failed bash commands, file not found, permission denied, command not found, and other terminal/tool errors
 
 ## Platform support
 

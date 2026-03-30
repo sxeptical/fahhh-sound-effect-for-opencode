@@ -10,14 +10,18 @@ export const FahhhPlugin = async ({ $ }) => {
       if (event.type === "session.error") {
         $`afplay ${SOUND_FILE}`.catch(() => {})
       }
+    },
 
-      if (event.type === "lsp.client.diagnostics") {
-        const hasErrors = event.properties?.diagnostics?.some(
-          (d) => d.severity === 1,
+    "tool.execute.after": async (input, output) => {
+      const result = typeof output.result === "string" ? output.result : ""
+      const isError =
+        output.error ||
+        /error:|ENOENT|no such file|not found|command not found|permission denied|EACCES|cannot find|fatal:|failed to/i.test(
+          result,
         )
-        if (hasErrors) {
-          $`afplay ${SOUND_FILE}`.catch(() => {})
-        }
+
+      if (isError) {
+        $`afplay ${SOUND_FILE}`.catch(() => {})
       }
     },
   }
