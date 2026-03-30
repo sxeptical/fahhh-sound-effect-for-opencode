@@ -27,7 +27,11 @@ cp index.js fahhh.mp3 .opencode/plugins/
 
 ## How it works
 
-The plugin listens for `session.error` events and plays `fahhh.mp3` using macOS's built-in `afplay` command. The sound plays asynchronously so it never blocks OpenCode.
+The plugin listens for errors and plays `fahhh.mp3` using macOS's built-in `afplay` command. The sound plays asynchronously so it never blocks OpenCode.
+
+Triggers on:
+- **Session errors** (`session.error`) -- API failures, rate limits, auth issues, etc.
+- **LSP errors** (`lsp.client.diagnostics`) -- type errors, syntax errors, and other diagnostics with severity level "Error"
 
 ## Platform support
 

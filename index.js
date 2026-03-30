@@ -10,6 +10,15 @@ export const FahhhPlugin = async ({ $ }) => {
       if (event.type === "session.error") {
         $`afplay ${SOUND_FILE}`.catch(() => {})
       }
+
+      if (event.type === "lsp.client.diagnostics") {
+        const hasErrors = event.properties?.diagnostics?.some(
+          (d) => d.severity === 1,
+        )
+        if (hasErrors) {
+          $`afplay ${SOUND_FILE}`.catch(() => {})
+        }
+      }
     },
   }
 }
