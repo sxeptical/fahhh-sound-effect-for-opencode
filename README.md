@@ -1,6 +1,6 @@
 # fahhh-sound-effect-for-opencode
 
-An [OpenCode](https://opencode.ai) plugin that plays the **Fahhh** sound effect when an error is encountered.
+An Opencode plugin that plays the **Fahhh** sound effect when an error is encountered.
 
 ## Install
 
@@ -32,7 +32,3 @@ The plugin listens for `session.error` events and plays `fahhh.mp3` using macOS'
 ## Platform support
 
 Currently macOS only (`afplay`). PRs welcome for Linux (`aplay`/`paplay`) and Windows (`powershell`) support.
-
-## Credits
-
-Sound effect: **Fahhh - Sound Effect** by SowaSFX
